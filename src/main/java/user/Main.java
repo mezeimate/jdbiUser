@@ -32,6 +32,10 @@ public class Main {
                     .name(faker.name().fullName()).gender(faker.options()).birthDate(faker
                     .date().birthday()).enabled(faker.bool()).build());
 
+            dao.loadUser("nev");
+            dao.loadUserId("2");
+
+
 
             return  dao.addList();
         });

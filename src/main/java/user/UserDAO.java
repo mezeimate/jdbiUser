@@ -37,13 +37,7 @@ public interface UserDAO {
     Optional<User> loadUser(@Bind("name") String name);
 
     @SqlUpdate("DELETE FROM user WHERE username = :username AND password = :password AND name = :name AND email = :email AND gender = :gender AND birthDate = :birthDate AND enabled = :enabled")
-    void delete(@Bind("username") String username,
-                @Bind("password") String password,
-                @Bind("name") String name,
-                @Bind("email") String email,
-                @Bind("gender") Enum gender,
-                @Bind("birthDate") LocalDate birthDate,
-                @Bind("enabled") boolean enabled );
+    void delete(@BindBean User user);
 
     @SqlUpdate("SELECT * FROM user")
     List<User> addList();
